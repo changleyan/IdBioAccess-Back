@@ -10,7 +10,7 @@ class AuthUserSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = User
-        fields = ('username', 'first_name', 'last_name', 'is_active', 'email', 'position', 'union_section')
+        fields = ('username', 'first_name', 'last_name', 'is_active', 'email', 'ci')
         depth = 1
 
 

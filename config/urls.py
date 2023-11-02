@@ -23,7 +23,7 @@ from rest_framework_swagger.views import get_swagger_view
 
 routers = DefaultRouter()
 
-schema_view = get_swagger_view(title='Sindicato API')
+schema_view = get_swagger_view(title='IdBioAccess API')
 
 urlpatterns = [
     path('admin/', admin.site.urls),

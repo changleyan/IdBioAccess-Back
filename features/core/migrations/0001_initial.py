@@ -5,7 +5,7 @@ import django.contrib.auth.validators
 import django.core.validators
 from django.db import migrations, models
 import django.utils.timezone
-import features.core.utils
+import features.core.utilss
 import uuid
 
 

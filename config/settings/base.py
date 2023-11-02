@@ -144,6 +144,8 @@ SIMPLE_JWT = {
     'REFRESH_TOKEN_LIFETIME': timedelta(days=6),
 }
 
+PAGINATION_PAGE_SIZE = 20
+
 # JWT_AUTH = {
 #     'JWT_ALGORITHM': 'HS512',
 #     'JWT_EXPIRATION_DELTA': datetime.timedelta(days=300),

@@ -5,8 +5,8 @@ from django.core.validators import RegexValidator
 from django.db import models
 from django.utils.translation import gettext_lazy as _
 
-from features.core.utils import NullEmailField
 
+from features.core.utils import NullEmailField
 
 # Create your models here.
 class AbsSlugField(models.Model):
@@ -37,7 +37,7 @@ class User(AbstractUser, AbsSlugField, AbsTimestamp):
         verbose_name_plural = 'Users'
         ordering = ['-created']
 
-class Group(Group):
+class Groupp(Group):
 
     class Meta:
         db_table = 'tbl_group'

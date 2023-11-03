@@ -23,7 +23,7 @@ from django.contrib.admin.sites import AlreadyRegistered
 MAX_SIZE_IMAGE = 10 * 1024 * 1024
 MAX_SIZE_DOC = 50 * 1024 * 1024
 
-G_ADMINISTRADOR = "Administrators"
+G_ADMINISTRADOR = "Admin"
 
 ALLOWED_TYPE_IMAGE = [
     "image/png",

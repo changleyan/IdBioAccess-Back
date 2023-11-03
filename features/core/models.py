@@ -26,7 +26,7 @@ class AbsTimestamp(models.Model):
 
 class User(AbstractUser, AbsSlugField, AbsTimestamp):
     email = NullEmailField(null=True, blank=True, unique=True)
-    ci = models.IntegerField(validators=[RegexValidator(regex='\?[\d+]{11,}'), ], null=True)
+    ci = models.CharField(max_length=11, validators=[RegexValidator(regex=r'^\d{11}$', message='El CI de Cuba debe tener 11 dígitos numéricos')], null=True)
     REQUIRED_FIELDS = ['email']
 
     EMAIL_FIELD = None

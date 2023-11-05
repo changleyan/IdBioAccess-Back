@@ -13,7 +13,7 @@ class UserPermissions(permissions.BasePermission):
             return is_authenticated
 
         if view.action in ['update', 'partial_update']:
-            id = view.kwargs['pk']
+            id = usuario.id
             is_active = convertir_bool('is_active', request.POST.get('is_active'))
             if is_active is not None and is_active and usuario.id == int(id) and not (
                     has_permission(request, view) and is_authenticated):
@@ -21,7 +21,7 @@ class UserPermissions(permissions.BasePermission):
             return ((usuario.id == int(id) and has_permission(request, view)) or pertenece_grupo(usuario,
                                                                                                  G_ADMINISTRADOR)) and is_authenticated
         elif view.action in ['retrieve']:
-            id = view.kwargs['pk']
+            id = usuario.id
             is_user = True
             if id is not None:
                 is_user = usuario.id == int(id)

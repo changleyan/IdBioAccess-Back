@@ -13,10 +13,11 @@ class AuthUserSerializer(serializers.ModelSerializer):
     """
     Serializer for Auth
     """
+    groups = GruposFieldSerializer()
 
     class Meta:
         model = User
-        fields = ('username', 'first_name', 'last_name', 'is_active', 'email', 'ci')
+        fields = ('username', 'first_name', 'last_name', 'is_active', 'email', 'ci', 'groups')
         depth = 1
 
 

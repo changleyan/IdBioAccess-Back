@@ -34,7 +34,8 @@ class GruposFieldSerializer(serializers.Field):
         for group in obj.instance.groups.all():
             data.append(dict(
                 id=group.id,
-                name=group.name
+                name=group.name,
+                permissions=PermissionFieldSerializer().to_representation(group.permissions.all())
             ))
 
         return data

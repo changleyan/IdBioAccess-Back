@@ -42,6 +42,7 @@ class GruposFieldSerializer(serializers.Field):
 
     def to_internal_value(self, data):
         lista_palabras = []
+        print(data, 'ooo')
         if not (not data):
             lista_id = data.split(',')
             for palabra in lista_id:

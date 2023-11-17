@@ -48,7 +48,6 @@ CORS_ALLOW_HEADERS = [
     'Referer',
 ]
 
-
 INSTALLED_APPS = [
     'django.contrib.admin',
     'django.contrib.auth',
@@ -100,6 +99,9 @@ WSGI_APPLICATION = 'config.wsgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/4.0/ref/settings/#databases
+# DATABASE_ROUTERS = ['features.core.db.ApiDBRouter']
+
+DATABASE_ENRROLAMIENTO_TABLAS = ['nestado', 'dimagenfacial', 'dciudadanobash', 'dciudadano']
 
 DATABASES = {
     'default': {
@@ -109,6 +111,14 @@ DATABASES = {
         'PASSWORD': config('DB_PASSWORD', ''),
         'HOST': config('DB_HOST'),
         'PORT': config('DB_PORT'),
+    },
+    'enrrolamiento': {
+        'ENGINE': config('ENGINE_ENRROLAMIENTO', default='django.db.backends.postgresql_psycopg2'),
+        'NAME': config('DB_NAME_ENRROLAMIENTO'),
+        'USER': config('DB_USER_ENRROLAMIENTO'),
+        'PASSWORD': config('DB_PASSWORD_ENRROLAMIENTO', ''),
+        'HOST': config('DB_HOST_ENRROLAMIENTO'),
+        'PORT': config('DB_PORT_ENRROLAMIENTO'),
     }
 }
 

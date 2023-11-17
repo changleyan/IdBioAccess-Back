@@ -136,7 +136,7 @@ class Dciudadano(models.Model):
     residente = models.BooleanField(default=False)
     fechanacimiento = models.DateField()
     idexpediente = models.TextField(default='', max_length=20)
-    fecha = models.DateTimeField(auto_now_add=True)
+    fecha = models.DateField(auto_now_add=True)
     idpersona = models.ForeignKey(Dciudadanobash, on_delete=models.CASCADE, db_column='idpersona', max_length=32)
 
     class Meta:

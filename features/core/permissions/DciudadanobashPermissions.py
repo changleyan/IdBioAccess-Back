@@ -10,7 +10,8 @@ class DciudadanobashPermissions(permissions.BasePermission):
         usuario = request.user
         is_authenticated = usuario.is_authenticated
 
-        if view.action in ['list', 'create', 'partial_update', 'update', 'destroy', 'retrieve']:
+        # los permisos 'create', 'partial_update', 'update', 'destroy' no estan aki pq los ciudadanos bash son de solo lectura
+        if view.action in ['list', 'retrieve']:
             return has_permission(request, view) and is_authenticated
         return False
 
@@ -18,6 +19,6 @@ class DciudadanobashPermissions(permissions.BasePermission):
         usuario = request.user
         is_authenticated = usuario.is_authenticated
 
-        if view.action in ['partial_update', 'update', 'destroy', 'retrieve']:
+        if view.action in ['retrieve']:
             return has_permission(request, view) and is_authenticated
         return False

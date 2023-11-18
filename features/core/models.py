@@ -149,8 +149,9 @@ class Dimagenfacial(models.Model):
     # Atributos
     idciudadano = models.ForeignKey(Dciudadano, on_delete=models.CASCADE, db_column='idciudadano', primary_key=True)
     foto = models.BinaryField()
+    valida = models.BooleanField(default=False)
     fecha = models.DateTimeField(auto_now_add=True)
-    fecha_actualizacion = models.DateTimeField(auto_now_add=True)
+    fecha_actualizacion = models.DateField(auto_now_add=True)
 
     class Meta:
         verbose_name = _('Dimagenfacial')

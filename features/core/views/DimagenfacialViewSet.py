@@ -1,10 +1,12 @@
 # -*- coding: utf-8 -*-
 from django.utils.encoding import force_bytes
+from django_filters.rest_framework import DjangoFilterBackend
 from rest_framework import viewsets, filters, status
 from rest_framework.parsers import MultiPartParser, JSONParser
 from django.db import transaction
 from rest_framework.response import Response
 
+from features.core.Filters.DimagenfacialFilter import DimagenfacialFilter
 from features.core.models import Dimagenfacial
 from features.core.permissions.DimagenfacialPermissions import DimagenfacialPermissions
 from features.core.serializers.DimagenfacialSerializer import DimagenfacialSerializer
@@ -19,7 +21,8 @@ class DimagenfacialViewSet(viewsets.ModelViewSet):
     permission_classes = (DimagenfacialPermissions,)
     parser_classes = (MultiPartParser, JSONParser)
 
-    filter_backends = [filters.OrderingFilter]
+    filter_backends = [DjangoFilterBackend, filters.OrderingFilter]
+    filterset_class = DimagenfacialFilter  # Usa tu clase de filtro personalizado aquí si es necesario
     ordering_fields = '__all__'
 
     @transaction.atomic

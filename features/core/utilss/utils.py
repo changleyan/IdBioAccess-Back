@@ -242,6 +242,7 @@ def has_permission(request, view, model_name=None):
             action = "delete"
 
     code_name = action + "_" + model_name
+    print(code_name)
 
     try:
         permission = get_object_or_404(Permission, codename=code_name)

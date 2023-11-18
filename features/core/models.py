@@ -54,7 +54,7 @@ class Permiso(Permission):
         proxy = True
         # Aqui se van a crear todos los permisos de los modelos que estan en otra db
         # Ya que no se puede hacer migraciones en la db de enrrolamiento porque es de solo lectura
-        # Para cada modelo se deben crear 4 permios (view, add, change, delete)
+        # Para cada modelo se deben crear 5 permios (view, add, change, delete, retrieve)
         # Estos se crean con esas 4 acciones mas el string de la clase '_model' ejemplo 'view_permiso'
         # Lugo de esto hay que hacer las migraciones para que se creen estos permisos
         permissions = (
@@ -63,21 +63,25 @@ class Permiso(Permission):
             ("add_nestado", "Puede adicoinar estados en la db de enrrolamiento"),
             ("change_nestado", "Puede actualizar estados en la db de enrrolamiento"),
             ("delete_nestado", "Puede eliminar estados en la db de enrrolamiento"),
+            ("retrieve_nestado", "Puede obtener un estado en la db de enrrolamiento"),
 
             ("view_dciudadano", "Puede listar ciudadanos en la db de enrrolamiento"),
             ("add_dciudadano", "Puede adicoinar ciudadanos en la db de enrrolamiento"),
             ("change_dciudadano", "Puede actualizar ciudadanos en la db de enrrolamiento"),
             ("delete_dciudadano", "Puede eliminar ciudadanos en la db de enrrolamiento"),
+            ("retrieve_dciudadano", "Puede obtener un ciudadano en la db de enrrolamiento"),
 
             ("view_dciudadanobash", "Puede listar ciudadanos bash en la db de enrrolamiento"),
             ("add_dciudadanobash", "Puede adicoinar ciudadanos bash en la db de enrrolamiento"),
             ("change_dciudadanobash", "Puede actualizar ciudadanos bash en la db de enrrolamiento"),
             ("delete_dciudadanobash", "Puede eliminar ciudadanos bash en la db de enrrolamiento"),
+            ("retrieve_dciudadanobash", "Puede obtener un ciudadano bash en la db de enrrolamiento"),
 
             ("view_dimagenfacial", "Puede listar imagen facial en la db de enrrolamiento"),
             ("add_dimagenfacial", "Puede adicoinar imagen facial en la db de enrrolamiento"),
             ("change_dimagenfacial", "Puede actualizar imagen facial en la db de enrrolamiento"),
             ("delete_dimagenfacial", "Puede eliminar imagen facial en la db de enrrolamiento"),
+            ("retrieve_dimagenfacial", "Puede obtener una imagen facial en la db de enrrolamiento"),
         )
 
 

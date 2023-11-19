@@ -58,14 +58,14 @@ class UserApiView(ModelViewSet):
     @transaction.atomic
     def partial_update(self, request, *args, **kwargs):
         serializer = self.get_instance(request, kwargs)
-        return Response(serializer.data, status=status.HTTP_200_OK)
+        return Response(serializer.data, status = status.HTTP_200_OK)
 
     def get_instance(self, request, kwargs):
         pk = kwargs['pk']
-        instance = get_object_or_404(self.queryset, pk=pk)
+        instance = get_object_or_404(self.queryset, pk = pk)
         self.check_object_permissions(request, instance)
-        serializer = UserSerializer(instance, data=request.data, partial=True)
-        serializer.is_valid(raise_exception=True)
+        serializer = UserSerializer(instance, data = request.data, partial = True)
+        serializer.is_valid(raise_exception = True)
         serializer.save()
         return Response(serializer.data)
 

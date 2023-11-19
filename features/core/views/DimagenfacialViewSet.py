@@ -40,8 +40,7 @@ class DimagenfacialViewSet(viewsets.ModelViewSet):
         serializer = self.get_serializer(data=request.data)
         serializer.is_valid(raise_exception=True)
 
-        # Asigna el objeto Dciudadano antes de guardar
-        dimagenfacial = serializer.save(idciudadano=dciudadano, foto=foto)
+        serializer.save(idciudadano=dciudadano, foto=foto)
 
         headers = self.get_success_headers(serializer.data)
         return Response(serializer.data, status=status.HTTP_201_CREATED, headers=headers)
